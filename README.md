@@ -15,7 +15,7 @@ docker-compose build
 docker-compose up
 ```
 
-## Cleanup
+#### Cleanup
 
 ```
 docker-compose down
