@@ -5,9 +5,7 @@
 
 #### Using this repo
 
-Install [docker-compose](https://docs.docker.com/compose/) first
-
-Get the repository, build and run
+Install [docker-compose](https://docs.docker.com/compose/) first.  Then run:
 ```
 git clone https://github.com/VizierDB/docker-desktop.git
 cd docker-desktop
@@ -16,7 +14,6 @@ docker-compose up
 ```
 
 #### Cleanup
-
 ```
 docker-compose down
 ```
