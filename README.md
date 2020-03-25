@@ -13,6 +13,8 @@ docker-compose build
 docker-compose up
 ```
 
+Per default `2GB` of memory are allocated to the Vizier container. If you want to use more memory, then change the setting in the `docker-compose.yml` file.
+
 #### Cleanup
 ```
 docker-compose down

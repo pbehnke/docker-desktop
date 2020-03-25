@@ -4,7 +4,7 @@ volumes:
   vizier-data:
 
 services:
-  vizier: 
+  vizier:
     image: vizier-desktop:latest
     build: .
     ports:
@@ -12,3 +12,7 @@ services:
       - "127.0.0.1:8089:8089"
     volumes:
       - "vizier-data:/data"
+    deploy:
+      resources:
+        reservations:
+          memory: 2GB

@@ -20,16 +20,15 @@ RUN mkdir -p /usr/share/man/man1
 
 # Install dependencies
 RUN apt-get install -y \
-    python2 \
-    python-pip \
+    python3 \
+    python3-pip \
 	openjdk-8-jre-headless \
- && pip2 install \
+ && pip3 install \
     setuptools \
     wheel
 
-#install Vizier 
-RUN pip install --system vizier-webapi
-
+#install Vizier
+RUN pip3 install --system vizier-webapi
 
 #download Mimir jars (avoid starting the API by passing a dummy argument -- this can be done more cleanly)
 RUN COURSIER_CACHE=/usr/local/mimir/cache /usr/local/mimir/mimir-api --hack-to-exit-the-API; exit 0
@@ -42,6 +41,8 @@ RUN mv /usr/local/bin/vizier /usr/local/bin/vizier.bak \
        ' > /usr/local/bin/vizier \
  && chmod +x /usr/local/bin/vizier
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 EXPOSE 5000
 EXPOSE 8089
 
@@ -52,4 +53,3 @@ VOLUME ["/data"]
 ENV USER_DATA_DIR=/data/
 
 ENTRYPOINT ["\/usr\/local\/bin\/vizier"]
-
